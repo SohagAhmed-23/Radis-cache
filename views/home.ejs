@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather in <%= weather.location.name %></title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #74ABE2, #5563DE);
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(8px);
+      max-width: 400px;
+      margin: auto;
+    }
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🌦️ Weather in <%= weather.location.name %>, <%= weather.location.country %></h1>
+    <img src="<%= weather.current.condition.icon %>" alt="Weather Icon" />
+    <h2><%= weather.current.temp_c %>°C</h2>
+    <p><%= weather.current.condition.text %></p>
+    <p>Feels like: <%= weather.current.feelslike_c %>°C</p>
+    <p>Humidity: <%= weather.current.humidity %>%</p>
+    <p>Wind: <%= weather.current.wind_kph %> kph</p>
+    <small>Last updated: <%= weather.current.last_updated %></small>
+  </div>
+</body>
+</html>
